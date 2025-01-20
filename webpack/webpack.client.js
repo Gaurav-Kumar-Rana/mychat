@@ -4,7 +4,7 @@ module.exports = {
   mode: "development",
   entry: path.resolve(__dirname, "../src/client/index.js"),
   output: {
-    path: path.resolve(__dirname, "../public"),
+    path: path.resolve(__dirname, "../public/client"),
     filename: "[name]-[hash].js",
     clean: true,
   },

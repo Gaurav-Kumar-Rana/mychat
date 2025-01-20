@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "../public/server"),
     filename: "server.js",
+    clean: true,
   },
   externals: [nodeExternals()], // Exclude Node.js modules from the bundle
   module: {

@@ -1,15 +1,14 @@
 import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import ClientApp from '../components/App';
+import App from '../components/App';
 
 const app = express();
 
-// Serve static files for client
-app.use(express.static('dist/client'));
+app.use(express.static('../public/client'));
 
 app.get('*', (req, res) => {
-  const appHTML = ReactDOMServer.renderToString(<ClientApp />);
+  const appHTML = ReactDOMServer.renderToString(<App />);
   const html = `
     <!DOCTYPE html>
     <html lang="en">
