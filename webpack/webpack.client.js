@@ -20,19 +20,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(ts|tsx|js|jsx)$/,
         exclude: "/node_modules/",
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: [
-              "@babel/preset-env", // Transpile modern JavaScript
-              "@babel/preset-react", // Transpile JSX and React features
-            ],
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                "@babel/preset-env", // Transpile modern JavaScript
+                "@babel/preset-react", // Transpile JSX and React features
+                "@babel/preset-typescript", //To handle TypeScript
+              ],
+            },
           },
-        },
+        ],
       },
     ],
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   // optimization: {
   //   splitChunks: {
