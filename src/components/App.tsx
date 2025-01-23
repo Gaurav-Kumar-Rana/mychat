@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PhotoListComponent from "./PhotoListComponent";
 import ErrorBoundry from "./ErrorBoundry";
 import ThemeContext from "../store/context";
-import TodoApp from "./TodoApp.tsx";
+import TodoApp from "./TodoApp";
 function App() {
   const [list, setList] = useState([]);
   const [theme, setTheme] = useState("dark");
@@ -21,7 +21,7 @@ function App() {
       <ErrorBoundry>
         <div className={theme}>
           <h1>My Client App</h1>
-          {/* <PhotoListComponent list={list} /> */}
+          <PhotoListComponent list={list} />
           <TodoApp lists={todoLists} />
         </div>
       </ErrorBoundry>

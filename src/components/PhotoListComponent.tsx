@@ -1,7 +1,15 @@
 import React, { useContext } from "react";
 import ThemeContext from "../store/context";
-function PhotoListComponent({ list }) {
-  const { theme, setTheme } = useContext(ThemeContext);
+interface PhotoList {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}
+function PhotoListComponent({ list }: { list: PhotoList[] }) {
+  const { theme, setTheme }: { theme: string; setTheme: (theme: string) => void } =
+    useContext(ThemeContext);
   const dark = {
     color: "#fff",
     backgroundColor: "#000",
@@ -17,14 +25,14 @@ function PhotoListComponent({ list }) {
     <>
       <button
         onClick={() => {
-          setTheme((prevState) => (prevState == "dark" ? "light" : "dark"));
+          setTheme(theme === "dark" ? "light" : "dark");
         }}
       >
         Enable Night Mode
       </button>
       <ul className={theme} style={theme == "dark" ? dark : light}>
         {list.map(({ title }) => {
-          return <li key={title.split(" ").join("")}>{title}</li>;
+          return <li key={title}>{title}</li>;
         })}
       </ul>
     </>
